@@ -10,19 +10,19 @@ $(document).ready(function(){
       var pigLetters = pigWord.split("");
       var igpay = [];
       for (var a = 0; a < pigLetters.length;) {
-      if (pigLetters[a] === "a" || pigLetters[a] === "e" ||
-        pigLetters[a]  === "i" || pigLetters[a] === "o" ||
-        pigLetters[a]  === "u" || pigLetters[a] === undefined ||
-        pigLetters.length === 0 || pigLetters[a] === "A" || pigLetters[a] === "E" ||
-        pigLetters[a]  === "I" || pigLetters[a] === "O" ||
-        pigLetters[a]  === "U")
-        {
-          a += pigLetters.length;
+        if (pigLetters[a] === "a" || pigLetters[a] === "e" ||
+          pigLetters[a]  === "i" || pigLetters[a] === "o" ||
+          pigLetters[a]  === "u" || pigLetters[a] === undefined ||
+          pigLetters.length === 0 || pigLetters[a] === "A" || pigLetters[a] === "E" ||
+          pigLetters[a]  === "I" || pigLetters[a] === "O" ||
+          pigLetters[a]  === "U")
+          {
+            a += pigLetters.length;
 
-        }else
-        {
-          igpay.push(pigLetters.shift());
-        }
+          }else
+          {
+            igpay.push(pigLetters.shift());
+          }
         }
         if (igpay === undefined || igpay.length == 0)
         {
@@ -41,4 +41,32 @@ $(document).ready(function(){
       $("#result").append(endString.join(' '))
 
     });
+
+//-----------------------------roman break
+
+  $("form#roman-num").submit(function(event) {
+    event.preventDefault();
+
+    var romanVar = parseInt($("input#roman").val());
+
+    function romanNum (numV, letR) {
+      for (romanVar; romanVar >= numV; romanVar -= numV) {
+        $("#romanResult").append(letR);
+      }
+    };
+
+    romanNum(1000 , "M");
+    romanNum(900 , "CM");
+    romanNum(500 , "L");
+    romanNum(400 , "CL");
+    romanNum(100 , "C");
+    romanNum(90 , "XC");
+    romanNum(50 , "L");
+    romanNum(40 , "XL");
+    romanNum(10 , "X");
+    romanNum(9 , "IX");
+    romanNum(5 , "V");
+    romanNum(4 , "IV");
+    romanNum(1 , "I");
+  });
 });
