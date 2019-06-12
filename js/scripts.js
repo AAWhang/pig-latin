@@ -46,7 +46,6 @@ $(document).ready(function(){
 
   $("form#roman-num").submit(function(event) {
     event.preventDefault();
-
     var romanVar = parseInt($("input#roman").val());
 
     function romanNum (numV, letR) {
@@ -69,4 +68,40 @@ $(document).ready(function(){
     romanNum(4 , "IV");
     romanNum(1 , "I");
   });
+
+  // ------------------------- Cryptosquare --
+
+  $("form#square").submit(function(event) {
+    event.preventDefault();
+
+    var squareVar = parseInt($("input#scrypt").val());
+
+    });
 });
+
+
+//creates number of arrays and sets array length
+var userString = prompt("enter a string");
+var uString = userString.replace(/\s+/g, "");
+var stringArray = uString.split("");
+var num = stringArray.length;
+alert(num);
+
+
+var charlength = 0;
+for (i = 1; (i * i) < num; i ++) {
+	charlength = i;
+}
+var numArrays = Math.ceil(num / charlength);
+alert(numArrays + " " + charlength);
+
+var arrays = new Array(numArrays);
+for (var i = 0; i < numArrays; i++)
+    arrays[i] = new Array(charlength);
+
+for (i)
+
+arrays[0][0] = "00";
+arrays[2][2] = "help me";
+arrays[1][0] = "100";
+alert(arrays[2][2]);
