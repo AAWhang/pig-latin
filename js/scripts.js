@@ -85,23 +85,154 @@ var userString = prompt("enter a string");
 var uString = userString.replace(/\s+/g, "");
 var stringArray = uString.split("");
 var num = stringArray.length;
+var endArray = [];
+var x = 0;
+var n = 0;
 alert(num);
 
 
 var charlength = 0;
-for (i = 1; (i * i) < num; i ++) {
+for (i = 1; (i * i) <= num; i ++) {
 	charlength = i;
 }
-var numArrays = Math.ceil(num / charlength);
-alert(numArrays + " " + charlength);
+alert(charlength);
 
-var arrays = new Array(numArrays);
-for (var i = 0; i < numArrays; i++)
-    arrays[i] = new Array(charlength);
 
-for (i)
+for (a = 0; a < num; a ++) { //////////////working arron's code
+  endArray.push(stringArray[(charlength * x) + n]);
+  x++;
+  if (stringArray[(charlength * x) + n] === undefined) {
+    x = 0;
+    n++;
+  }
+}
 
-arrays[0][0] = "00";
-arrays[2][2] = "help me";
-arrays[1][0] = "100";
-alert(arrays[2][2]);
+alert(endArray);
+
+// var numArrays = Math.ceil(num / charlength); //2D array method, redundant
+// alert(numArrays + " " + charlength);
+//
+// var arrays = new Array(numArrays);
+// for (var i = 0; i < numArrays; i++)
+//     arrays[i] = new Array(charlength);
+//
+// for (i)
+//
+// arrays[0][0] = "00";
+// arrays[2][2] = "help me";
+// arrays[1][0] = "100";
+// alert(arrays[2][2]);
+
+
+
+
+
+
+
+/////////////////////////////end of
+
+
+
+
+//
+//
+// var str = "";
+// var newStr = "";
+// var counter = 0;
+// var columnNumber = 5;
+//
+// for (var i = 0; i < str.length; i++){
+//
+//   newStr += ((i * columnNumber) % str.length) + counter;
+//
+//   if (i % columnNumber === 0){
+//     counter++;
+//   }
+ }
+
+debugger;
+var theStr = ("abcdefghjiklmnopqrstuvwxyz").replace(/\s+/g, "");
+var columnSize = returnLargerSquare(theStr);
+var rowSize = findRowSize(theStr, columnSize);
+var finalString = parse(theStr, columnSize, rowSize);
+alert(addSpaces(finalString));
+
+function returnLargerSquare(str){
+  for (var i = 0; i < str.length; i++){
+    if (i * i >= str.length){
+      console.log("Column size: " + i);
+      return i;
+    }
+  }
+}
+
+function findRowSize(str, columnSize){
+  var dif = Math.pow(columnSize, 2) - str.length;
+  return columnSize - Math.floor(dif / columnSize);
+}
+
+
+
+function parse(str, col, row){
+  var counter = 0;
+  var newStr = "";
+  var boxSize = col * row;
+  for (var i = 0; i < boxSize; i++){
+    if (i > 0){
+      if((i * row) % boxSize === 0){
+      counter++;
+      }
+    }
+     if(((i * row) % boxSize) + counter < str.length){
+    newStr += str.charAt(((i * row) % boxSize) + counter) ;
+  } //else that is the undefined box
+
+  }
+  return newStr;
+}
+
+function addSpaces(str){
+  var newStr = "";
+  for (var i = 0; i < str.length; i++){
+    if (i > 0){
+      if (i % 5 === 0){
+        newStr += " ";
+      }
+    }
+    newStr += str.charAt(i);
+  }
+  return newStr;
+}
+
+
+var _startArray = [];
+var raFinal = [];
+
+function recurss(startArray){
+
+  if (startArray.length === 0){
+    return;
+  }
+  var leastValIndex = returnLeastValIndex(startArray);
+  raFinal.push(startArray(leastValIndex));
+  //remove leastValIndex from startArray
+  recurss(startArray);
+}
+
+function returnLeastValIndex(){
+var minVal;
+}
+
+
+//telegram problem
+
+
+function stairs(stairsLeft){
+  if (stairsLeft < 1){
+    return;
+  }
+  if (stairsLeft == 2){
+    return
+  }
+  return 1 + stairs(stairsLeft -1 );
+}
